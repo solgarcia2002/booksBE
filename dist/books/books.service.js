@@ -18,7 +18,7 @@ let BooksService = class BooksService {
         return app_service_1.AppService.mysqlConnectionExec('SELECT book.id, book.name, book.description, author.name AS authorName FROM book INNER JOIN author ON author.id= book.authorid');
     }
     findOne(id) {
-        return app_service_1.AppService.mysqlConnectionExec(`SELECT * from book WHERE id=${id}`);
+        return app_service_1.AppService.mysqlConnectionExec(`SELECT book.id, book.name, book.description, author.name AS authorName FROM book INNER JOIN author ON author.id= book.authoridbook.id, book.name, book.description, author.name AS authorName FROM book INNER JOIN author ON author.id= book.authorid WHERE id=${id}`);
     }
     update(id, updateBookDto) {
         return app_service_1.AppService.mysqlConnectionExec(`UPDATE book

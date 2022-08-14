@@ -30,6 +30,7 @@ async function bootstrap() {
             console.log("Connected to MySQL Server");
         }
     });
+    app.enableCors();
     await app.listen(process.env.PORT || 3010);
 }
 bootstrap();
