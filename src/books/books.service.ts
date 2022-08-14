@@ -11,11 +11,11 @@ export class BooksService {
   }
 
   findAll() {
-    return AppService.mysqlConnectionExec('SELECT * from book')
+    return AppService.mysqlConnectionExec('SELECT book.id, book.name, book.description, author.name AS authorName FROM book INNER JOIN author ON author.id= book.authorid')
   }
 
   findOne(id: number) {
-    return AppService.mysqlConnectionExec(`SELECT * from book WHERE id=${id}`)
+    return AppService.mysqlConnectionExec(`SELECT book.id, book.name, book.description, author.name AS authorName FROM book INNER JOIN author ON author.id= book.authoridbook.id, book.name, book.description, author.name AS authorName FROM book INNER JOIN author ON author.id= book.authorid WHERE id=${id}`)
   }
 
   update(id: number, updateBookDto: UpdateBookDto) {

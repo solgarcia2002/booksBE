@@ -15,7 +15,7 @@ let BooksService = class BooksService {
     (name, description, authorid) VALUES ("${createBookDto.name}", "${createBookDto.description}", "${createBookDto.authorId}")`);
     }
     findAll() {
-        return app_service_1.AppService.mysqlConnectionExec('SELECT * from book');
+        return app_service_1.AppService.mysqlConnectionExec('SELECT book.id, book.name, book.description, author.name AS authorName FROM book INNER JOIN author ON author.id= book.authorid');
     }
     findOne(id) {
         return app_service_1.AppService.mysqlConnectionExec(`SELECT * from book WHERE id=${id}`);
